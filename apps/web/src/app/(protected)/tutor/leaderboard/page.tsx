@@ -47,7 +47,7 @@ export default async function TutorLeaderboardPage({
             organizationId: currentUser.organizationId,
           },
         },
-        select: {
+        include: {
           user: {
             select: {
               id: true,
@@ -57,7 +57,6 @@ export default async function TutorLeaderboardPage({
               mobile: true,
             },
           },
-          courseId: true,
           
         },
         distinct: ["username"],
