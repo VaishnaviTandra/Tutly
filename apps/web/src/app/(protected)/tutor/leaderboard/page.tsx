@@ -47,7 +47,7 @@ export default async function TutorLeaderboardPage({
             organizationId: currentUser.organizationId,
           },
         },
-        include: {
+        select: {
           user: {
             select: {
               id: true,
@@ -57,12 +57,8 @@ export default async function TutorLeaderboardPage({
               mobile: true,
             },
           },
-          course:{
-            select:{
-              id:true,
-              title:true
-            }
-          }
+          courseId: true,
+          
         },
         distinct: ["username"],
       })
@@ -140,7 +136,7 @@ export default async function TutorLeaderboardPage({
     name: mentor.user.name,
     image: mentor.user.image,
     mobile: mentor.user.mobile,
-    courseId:mentor.course?.id
+    courseId:mentor.courseId
   }));
   return (
     <Leaderboard

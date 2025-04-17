@@ -52,7 +52,7 @@ interface Mentor {
   name: string;
   image: string | null;
   mobile: string | null;
-  courseId?:string;
+  courseId:string|null;
 }
 
 interface CurrentUser {
